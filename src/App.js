@@ -1,29 +1,36 @@
 
-// import './App.css';
-import {BrowserRouter as Router,Routes,Route} from "react-router-dom"
+import {BrowserRouter,Routes,Route,Navigate} from "react-router-dom"
 import Login from './Pages/login';
 import Register from './Pages/register';
-
 import Todo from './Pages/todo';
 import NotFound from "./Components/NotFound"
+import UseUserContext from "./hooks/useUserContext";
+import ProtectComponent from "./auth/protectedRoute";
+import Home from "./Pages/home";
+
 function App() {
+  const {user}=UseUserContext()
   return (
-     <Router>
-        {/* <Layout> */}
-          <Routes>
-                <Route path="/" element={<Login />} />
-                <Route path='register' element={<Register />} />
-                <Route path='home' element={<Todo />} />
-          {/* <Route path='/' element={<Layout />}> */}
+        <BrowserRouter>
+        <Routes>
+            <Route path="/" element={<Login />}></Route>
 
-                <Route path="*" element={<NotFound />} />
-          {/* </Route> */}
-          </Routes>
-       
+           {!user.token &&<Route path="register" element={<Register />}></Route>}
+           
+          <Route path="/todo" element={user.token!=null?<Todo></Todo>:<Navigate to="/" replace></Navigate>
+             }/>
 
-     </Router>
+            <Route path="/home" element={<ProtectComponent>
+              <Home></Home>
+            </ProtectComponent>}>
+            </Route>
+           <Route path="*" element={<NotFound />}></Route>
+        </Routes>
+      </BrowserRouter> 
   );
 }
 
 export default App;
+
+
 

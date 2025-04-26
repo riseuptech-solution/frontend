@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="logo">
-        <img src="logo.png" alt="Logo" /> {/* Replace with your actual logo path */}
+        {/* <img src="logo.png" alt="Logo" /> */}
       </div>
       <div className="footer-text">Thank you for visiting!</div>
       <button className="contact-button">Contact Us</button>

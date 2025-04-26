@@ -134,6 +134,12 @@
     background-color: #48bb78;
     color: white;
   }
+  .success-message{
+    background-color: #b9eccf;
+    color: rgb(16, 160, 76);
+    font-size: 15px;
+  border-radius: 5px;
+  }
   
   .save-btn:hover {
     background-color: #38a169;

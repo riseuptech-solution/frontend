@@ -10,8 +10,11 @@ const Layout=({children})=>{
             </main>
      
         <Footer  />
+
    </div>
    )
 }
+
+
 
 export default Layout

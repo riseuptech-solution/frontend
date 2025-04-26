@@ -8,7 +8,17 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     animation: fadeIn 0.5s ease-in-out;
   }
-  
+  .error-message{
+    background-color: rgb(240, 171, 171);
+    color: rgb(87, 6, 6);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    font-size: 15px;
+    margin: 20px;
+    border-radius: 5px;
+  }
   .login-main h4 {
     text-align: center;
     margin-bottom: 1.5rem;
